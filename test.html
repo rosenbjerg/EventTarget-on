@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="src/eventtarget-on.js"></script>
+</head>
+<body>
+<div id="container">
+    <div class="test">
+        <button>Test click 1</button>
+    </div>
+    <button>Test click 2</button>
+</div>
+
+<form id="form">
+    <input type="submit">
+</form>
+
+<button id="button">Test click 3</button>
+<script>
+    document.getElementById("container").on("click", ".test button", function () {
+        console.log("1", this);
+    });
+
+    let hnd = function () {
+        console.log("1 & 2", this);
+    };
+    document.getElementById("container").on("click", "button", hnd).off("click", hnd);
+    document.getElementById("button").on("click", function () {
+        console.log("3", this);
+    }).off("click", () => {});
+    document.getElementById("form").on("submit", function (ev) {
+        console.log("submit", this);
+        ev.preventDefault();
+    }).off();
+
+
+</script>
+</body>
+</html>
