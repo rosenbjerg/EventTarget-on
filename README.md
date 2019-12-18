@@ -1,5 +1,7 @@
 # EventTarget-on
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rosenbjerg/EventTarget-on.svg)](https://greenkeeper.io/)
+
 Library that simply adds the function 
 `on(event, selector, handler, options)` and
 `off(event, handler, options)`
